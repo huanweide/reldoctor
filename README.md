@@ -5,6 +5,7 @@
 <!-- /badges -->
 
 # reldoctor
+> **English** · [README_EN.md](./README_EN.md)
 
 零依赖发布卫生体检 CLI。检查 `package.json version` / 最新 `git tag` / `CHANGELOG.md` 三者是否一致，给出 0–100 健康分，可直接挂进 CI 当发布门禁。
 
