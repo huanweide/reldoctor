@@ -1,3 +1,9 @@
+<!-- badges -->
+[![Node](https://img.shields.io/badge/Node.js-≥18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![Zero-Deps](https://img.shields.io/badge/dependencies-zero-0f9d58?logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![License](https://img.shields.io/github/license/huanweide/reldoctor)](LICENSE)
+<!-- /badges -->
+
 # reldoctor
 
 零依赖发布卫生体检 CLI。检查 `package.json version` / 最新 `git tag` / `CHANGELOG.md` 三者是否一致，给出 0–100 健康分，可直接挂进 CI 当发布门禁。
@@ -5,6 +11,11 @@
 > 一句话：代码改了，但忘了打 tag、version 没跟上、CHANGELOG 没更新 —— 这些极常见的「发布事故」，reldoctor 一条命令扫出来。
 
 零依赖单文件（仅 Node 内置模块 + 系统 git），开箱即用，不联网、不执行你的代码。
+
+## 谁该用 / 谁先别用
+
+- **该用**：手动或半自动发版的维护者；想在 pre-release 阶段拦住「忘打 tag / version 脱节」；多包 monorepo 发版前做一次三角一致性体检。
+- **先别用**：完全交给 semantic-release / release-please 自动发版、且信任其一致性的团队（门禁价值有限）；纯库无 CHANGELOG 流程、也不打算建立的。
 
 ## 为什么需要它
 
@@ -74,6 +85,14 @@ reldoctor 是「代码健康 family」的 git 层治理四件套之一，与以�
 - 安全：只读 `fs` 与系统 `git`，git 调用经 `execFileSync` + `cwd` 传入，绝不拼接 shell。
 - 健壮：非 git 仓库 / 无 package.json / 坏 JSON / git 命令失败，一律降级为「无数据」而非崩溃。
 - 门禁防呆：所有阈值参数经 `Number.isFinite` 校验，非整数直接 `exit 2`，不会静默放行。
+
+## ⭐ 给个 Star
+
+如果 reldoctor 帮你拦住过一次「version / tag / CHANGELOG 脱节」的发版事故，欢迎点个 Star ⭐：https://github.com/huanweide/reldoctor
+
+## 作者
+
+由 [huanweide](https://github.com/huanweide) 维护。
 
 ## License
 
